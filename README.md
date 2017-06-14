@@ -1,5 +1,5 @@
 # strictDC
-script sample:
+## script sample:
 
 #!/bin/csh
 
