@@ -1,0 +1,24 @@
+#!/bin/csh
+
+#$ -M jliu16@nd.edu	 # Email address for job notification
+#$ -m abe		 # Send mail when job begins, ends and aborts
+#$ -pe smp 4		 # Specify parallel environment and legal core size
+#$ -q gpu		 # Specify queue
+#$ -N TrGetR	         # Specify job name
+
+module load python cuda/8.0 tensorflow/0.12-python2        # Required modules
+
+#python main.py --dataset lrtr --c_dim=1 --is_train > rec/recRtrain
+
+#python main.py --dataset lrtr --c_dim=1 > rec/recRget
+
+#python SensorCountT.py -s data/lrte
+#python SensorCountT.py -s data/lrtr
+
+#python SensorCount.py -s samples/r_1b
+
+#python Cover_1.py -s data/lrte -r sensors/sensor_from_r_1b_0.9
+
+python SensorCount.py -s samples/r_1w
+
+python Cover_1.py -s data/lrte -r sensors/sensor_from_r_1w_0.9
